@@ -1,0 +1,8 @@
+@charset 'UTF-8';
+// Precargar configuraciones
+@import './config';
+// Cargar base
+@import './base/base';
+@import './layout/layout';
+@import './components/components';
+@import './tools/utilities';

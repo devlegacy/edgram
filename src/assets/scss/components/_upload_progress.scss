@@ -1,0 +1,17 @@
+.progress {
+  display: flex;
+  margin: 1rem auto;
+
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &-bar {
+    width: 50%;
+  }
+
+  &-advance {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

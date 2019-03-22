@@ -1,0 +1,60 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.u-show {
+  display: block;
+
+  transition: opacity 400ms;
+}
+
+.u-hide {
+  display: none !important;
+
+  opacity: 0;
+}
+
+.u-fadein {
+  animation: fadeIn 400ms;
+}
+
+.u-fixed {
+  position: fixed;
+  left: 0;
+  z-index: 9999;
+
+  width: 100%;
+  // height: 3rem;
+  // padding: .5rem;
+
+  background: linear-gradient(-45deg,$fourth-color, $third-color);
+}
+
+.u-jc-flex-start {
+  justify-content: flex-start;
+}
+
+.u-disabled {
+  pointer-events: none;
+  & i {
+    color: $fourth-color;
+  }
+}
+
+.u-title {
+  margin: 1rem auto;
+
+  font-size: 8vw;
+}
+
+.u-offline {
+  background: #666;
+  color: #fff;
+
+  filter: blur(.1rem);
+}

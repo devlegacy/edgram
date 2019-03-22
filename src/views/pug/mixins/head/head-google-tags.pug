@@ -1,0 +1,17 @@
+mixin headGoogleTags(verification_token, ga_traking_id)
+  //- Tells Google not to show the sitelinks search box
+  <meta name="google" content="nositelinkssearchbox">
+  //- Tells Google not to provide a translation for this document
+  <meta name="google" content="notranslate">
+  if verification_token
+    //- Google Search Console
+    meta(name="google-site-verification", content=verification_token)
+  if ga_traking_id
+    //- Global Site Tag (gtag.js) - Google Analytics
+    script(async, src=`https://www.googletagmanager.com/gtag/js?id=${ga_traking_id}`)
+    script
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+
+      | gtag('config', '#{ga_traking_id}');

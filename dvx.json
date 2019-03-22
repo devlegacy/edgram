@@ -1,0 +1,30 @@
+{
+  "app": {
+    "url": "https://devlegacy.github.io",
+    "subDomain": "edgram",
+    "favicon": "src/assets/img/dist/icons/favicon.png",
+    "lang": "es-MX",
+    "dir": "ltr",
+    "name": "EDgram por EDteam",
+    "description": "Aplicación Web Progresiva inspirada en Instagram con fines educativos.",
+    "short_name": "EDgram",
+    "categories": "education",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#2279d7",
+    "background_color": "#d24f56",
+    "apple_status_bar_style": "black-translucent",
+    "serviceWorker": {
+      "src": "sw.js",
+      "update_via_cache": "none"
+    },
+    "developer_name": "Devexteam",
+    "developer_url": "https://devexteam.com/",
+    "version": "1.0.0"
+  },
+  "port": {
+    "browser_sync": 3000,
+    "http_server": 9010,
+    "webpack_dev_server": 9000
+  }
+}
