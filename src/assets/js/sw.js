@@ -1,19 +1,22 @@
 import { c, error } from "./helpers/console";
+importScripts(`${PUBLIC_PATH.pathname}assets-manifest.js`);
 
 const CACHE_NAME = 'edgram-cache-v1';
 
 const urlsToCache = [
-  `${PUBLIC_PATH.root}index.html`,
-  `${PUBLIC_PATH.root}index.html?utm=homescreen`,
-  // `${PUBLIC_PATH.root}assets/css/app.css`, has hash in prod / load dynamic - witouth full integration with webpack
-  // `${PUBLIC_PATH.root}assets/js/app.js`, has hash in prod / load dynamic - witouth full integration with webpack
-  `${PUBLIC_PATH.root}sw-dvx.js`,
-  `${PUBLIC_PATH.root}assets/fonts/fa-regular-400.ttf`,
-  `${PUBLIC_PATH.root}assets/fonts/fa-regular-400.woff`,
-  `${PUBLIC_PATH.root}assets/fonts/fa-regular-400.woff2`,
-  `${PUBLIC_PATH.root}android-chrome-192x192.png`,
+  `${PUBLIC_PATH.pathname}index.html`,
+  `${PUBLIC_PATH.pathname}index.html?utm=homescreen`,
+  // `${PUBLIC_PATH.pathname}assets/css/app.css`, has hash in prod / load dynamic - witouth full integration with webpack
+  // `${PUBLIC_PATH.pathname}assets/js/app.js`, has hash in prod / load dynamic - witouth full integration with webpack
+  `${PUBLIC_PATH.pathname}sw-dvx.js`,
+  `${PUBLIC_PATH.pathname}assets/fonts/fa-regular-400.ttf`,
+  `${PUBLIC_PATH.pathname}assets/fonts/fa-regular-400.woff`,
+  `${PUBLIC_PATH.pathname}assets/fonts/fa-regular-400.woff2`,
+  `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
 ];
-
+if (__assetsManifest) {
+  __assetsManifest = __assetsManifest.filter(data => !(data.includes('.hot-update.json') || data.includes('browser-sync') || data.includes('dvx-sw.js')));
+}
 self.addEventListener('install', e => {
   c(`[sw]: Installed`);
   e.waitUntil(
@@ -22,7 +25,7 @@ self.addEventListener('install', e => {
       .then(cache => {
         c(`[sw]: Archivos en cache`);
         return cache
-          .addAll(urlsToCache)
+          .addAll(__assetsManifest)
           //skipWaiting forza al SW a activarse
           .then(() => self.skipWaiting());
       })
@@ -114,8 +117,8 @@ self.addEventListener('push', e => {
     let title = 'Push Notification Demo';
     let options = {
       body: 'Click to return to app',
-      icon: `${PUBLIC_PATH.root}android-chrome-192x192.png`,
-      badge: `${PUBLIC_PATH.root}android-chrome-192x192.png`,
+      icon: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
+      badge: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
       vibrate: [100, 200, 50], // ms
       data: {
         id: 1,
@@ -124,12 +127,12 @@ self.addEventListener('push', e => {
         {
           action: 'Si',
           title: 'I love this app 💓😍',
-          icon: `${PUBLIC_PATH.root}android-chrome-192x192.png`,
+          icon: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
         },
         {
           action: 'No',
           title: 'I don\'t love this app 💔😞',
-          icon: `${PUBLIC_PATH.root}android-chrome-192x192.png`,
+          icon: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
         },
       ],
     };

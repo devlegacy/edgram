@@ -20,7 +20,7 @@ export const pwa = () => {
     // w.addEventListener('load', () => {
     n
       .serviceWorker
-      .register(`${PUBLIC_PATH.root}sw-dvx.js`)
+      .register(`${PUBLIC_PATH.pathname}dvx-sw.js`)
       .then(registration => {
         c(`[sw]: Registered successfully`, registration);
       })
@@ -35,8 +35,8 @@ export const pwa = () => {
       try {
         let n = new Notification('Title', {
           body: 'Notification',
-          badge: `${PUBLIC_PATH.root}android-chrome-192x192.png`,
-          icon: `${PUBLIC_PATH.root}android-chrome-192x192.png`
+          badge: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`,
+          icon: `${PUBLIC_PATH.pathname}android-chrome-192x192.png`
         });
       } catch (e) {
         c(`No es posible crear la notificación`);

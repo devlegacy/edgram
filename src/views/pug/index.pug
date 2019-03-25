@@ -1,7 +1,17 @@
 extends ./templates/base.pug
-block header
+block config
+  - const baseOpenGraphImage1200x1200  = require('../../assets/img/dist/opengraph/opengraph-1200x1200.jpg');
+  - const baseOpenGraphImage1200x640  = require('../../assets/img/dist/opengraph/opengraph-1200x640.png');
+  - const linkToHumansTXT     = require('../../humans.txt');
+
+block head
+  +headGoogleTags(DVX_ENV.GOOGLE_SITE_VERIFICATION,DVX_ENV.GA_TRAKING_ID)
+block main
   #root
   .connection.hide
     p.connection__message
     i.fas.fa-wifi
     i.connection__status.far
+block prepend footer
+  +schemaWebsite()
+  +schemaOrganization()

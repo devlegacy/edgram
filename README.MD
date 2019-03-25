@@ -1,14 +1,5 @@
-# PWA Demo
+# ED PWA
 
-# Publish
+Aplicación web progresiva desarrollada en los primeros módulos del curso de "HTML 5 avanzado".
+Clon de Instagram con fines educativos
 
-npm run build:prod
-git subtree push --prefix public origin gh-pages
-rm -R ./public/
-
-
-## Create a firebase project
-
-## Authorize github
-
-https://github.com/settings/applications/new

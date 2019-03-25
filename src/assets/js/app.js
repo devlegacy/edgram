@@ -8,7 +8,7 @@ import { isAuth } from "./components/auth";
 init();
 const app = `
   <main class="edgram">
-    ${isAuth()}
+    ${isAuth() || ''}
   </main>
 `;
 if (ENV === 'production') consoleUserWarning();

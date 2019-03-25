@@ -4,7 +4,6 @@ ignore.txt export-ignore
 .babelrc        merge=ours
 .csscomb.json   merge=ours
 .editorconfig   merge=ours
-.gitattributes  merge=ours
 .gitignore      merge=ours
 .htaccess       merge=ours
 .htmlhintrc     merge=ours

@@ -4,28 +4,7 @@
   "description": "Aplicación Web Progresiva inspirada en Instagram con fines educativos.",
   "main": "webpack.dvx.js",
   "scripts": {
-    "start": "                    npm run nodemon -- -x webpack-dev-server  -- --env.mode development --color --progress --stdin --hot --config-name app-config --config ./node_modules/\\@devexteam/dvx-wrapper/setup/webpack.config.js",
-    "webpack": "                  webpack --progress --colors --hide-modules --config-name app-config --config ./node_modules/\\@devexteam/dvx-wrapper/setup/webpack.config.js",
-    "sw": " webpack --progress --colors --hide-modules --config-name service-worker-config --config ./node_modules/\\@devexteam/dvx-wrapper/setup/webpack.config.js",
-    "sw:dev": "npm run sw -- --env.mode development --watch",
-    "sw:preview": "npm run sw -- --env.mode production --env.local true",
-    "sw:build": "npm run sw -- --env.mode production ",
-    "webpack:dev:local": "        npm run webpack -- --env.mode development",
-    "dev:local:watch": "          npm run nodemon -- -x \"npm run webpack:dev:local -- --watch\"",
-    "dev:parallel:local": "       parallelshell \"npm run webpack:dev:local\" \"npm run server:local\"",
-    "dev:local": "                npm run nodemon -- -x \"npm run dev:parallel:local\"",
-    "build:dev": "                npm run webpack:dev:local",
-    "webpack:build": "            npm run webpack -- -p --env.mode production",
-    "webpack:build:local": "      npm run webpack:build -- --env.local true",
-    "webpack:build:local:debug": "npm run webpack:build -- --env.debug true",
-    "webpack:build:prod": "       npm run sw:build && npm run webpack:build",
-    "build:local": "              npm run clean && npm run webpack:build:local",
-    "build:prod": "               npm run clean && npm run webpack:build:prod",
-    "preview:local": "            npm run nodemon -- -x \"npm run sw:preview && npm run webpack:build:local && npm run server:local\"",
-    "preview:debug": "            npm run nodemon -- -x \"npm run sw:preview && npm run webpack:build:local:debug && npm run server:local\"",
-    "server:local": "http-server ./public -a localhost -p 9010 -e -g -o -c-1",
-    "nodemon": "nodemon -e js,json --watch webpack.dvx.js --watch package.json --watch dvx.json",
-    "clean": "rimraf ./src/assets/js/sw-dvx.js ./public/.cache ./public/.htaccess ./public/*.html ./public/*.ico ./public/*.js ./public/*.json ./public/*.map ./public/*.png ./public/*.pug ./public/*.txt ./public/*.webapp ./public/*.webmanifest ./public/*.xml ./public/assets/css/**/* ./public/assets/fonts/**/* ./public/assets/img/**/* ./public/assets/js/**/*.js ./public/assets/js/**/*.map ./public/data/**/*.json"
+    "start": "nps"
   },
   "keywords": [
     "pwa",
@@ -36,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@devexteam/dvx-cli": "^1.0.16",
-    "@devexteam/dvx-wrapper": "^1.0.45",
+    "@devexteam/dvx-wrapper": "^1.0.47",
     "acorn": "^6.1.1",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
